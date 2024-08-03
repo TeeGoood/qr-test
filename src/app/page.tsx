@@ -1,11 +1,14 @@
 'use client';
 
 import { Html5Qrcode } from 'html5-qrcode';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { QrReader } from 'react-qr-reader';
 
 const id = 'reader';
 
 export default function Home() {
+	const [qrcode, setQrcode] = useState<string | null>(null);
+
 	useEffect(() => {
 		const reader = new Html5Qrcode(id);
 		reader
@@ -24,7 +27,7 @@ export default function Home() {
 				}
 			)
 			.then(() => {
-				reader.applyVideoConstraints({ advanced: [{ zoom: 1.5 } as any] });
+				reader.applyVideoConstraints({ advanced: [{ zoom: 1.5, focusMode: 'continuous', } as any] });
 			});
 
 		return () => reader.clear();
@@ -37,6 +40,19 @@ export default function Home() {
 				id={id}
 				className='w-[500px]'
 			></div>
+			{/* <QrReader
+				onResult={(result, error) => {
+					if (result) {
+						setQrcode(result.text as string);
+					}
+
+					if (error) {
+						console.log(error);
+					}
+				}}
+				style={{ width: '50%' }}
+			/> */}
+			{qrcode}
 		</main>
 	);
 }
