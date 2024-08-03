@@ -19,6 +19,7 @@ export default function Home() {
 					aspectRatio: 1,
 				},
 				(decodedText) => {
+					setQrcode(decodedText);
 					console.log(decodedText);
 				},
 				(errorMessage) => {
