@@ -27,7 +27,7 @@ export default function Home() {
 				}
 			)
 			.then(() => {
-				reader.applyVideoConstraints({ advanced: [{ zoom: 1.5, focusMode: 'continuous', } as any] });
+				reader.applyVideoConstraints({ advanced: [{ zoom: 2.5, focusMode: 'continuous', } as any] });
 			});
 
 		return () => reader.clear();
