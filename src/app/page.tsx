@@ -24,7 +24,7 @@ export default function Home() {
 				}
 			)
 			.then(() => {
-				reader.applyVideoConstraints({ advanced: [{ zoom: 5 } as any] });
+				reader.applyVideoConstraints({ advanced: [{ zoom: 2.5 } as any] });
 			});
 
 		return () => reader.clear();
