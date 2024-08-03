@@ -2,7 +2,6 @@
 
 import { Html5Qrcode } from 'html5-qrcode';
 import { useEffect, useState } from 'react';
-import { QrReader } from 'react-qr-reader';
 
 const id = 'reader';
 
@@ -40,18 +39,6 @@ export default function Home() {
 				id={id}
 				className='w-[500px]'
 			></div>
-			{/* <QrReader
-				onResult={(result, error) => {
-					if (result) {
-						setQrcode(result.text as string);
-					}
-
-					if (error) {
-						console.log(error);
-					}
-				}}
-				style={{ width: '50%' }}
-			/> */}
 			{qrcode}
 		</main>
 	);
